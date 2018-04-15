@@ -103,6 +103,7 @@ namespace Gestion_de_dossier
         }
 
         DispatcherTimer Pager = new DispatcherTimer();
+        DispatcherTimer Fader = new DispatcherTimer();
 
         private void Grid_OnLoaded(object sender, RoutedEventArgs e)
         {
@@ -113,8 +114,15 @@ namespace Gestion_de_dossier
 
         private void PagerTicker(Object sender, EventArgs e)
         {
+            Fader.Tick += FaderTicker;
             Pageer("Plus");
             Databind();
+            _grid.Opacity = 1;
+        }
+
+        private void FaderTicker(Object sender, EventArgs e)
+        {
+            
         }
 
         public void Pager_restart()
@@ -127,5 +135,6 @@ namespace Gestion_de_dossier
         {
             Application.Current.Shutdown();
         }
+
     }
 }
