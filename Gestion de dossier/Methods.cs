@@ -16,7 +16,6 @@ namespace Gestion_de_dossier
         public static DataTable Filler(MainWindow a)
         {
             Main = a;
-            string connection_string = "server=localhost;user id=Puthus;database=test;password=142753869";
             MySqlConnection connection = new MySqlConnection(connection_string);
             MySqlCommand cmd = new MySqlCommand();
             cmd.Parameters.Add(new MySqlParameter("@debut", MySqlDbType.Date));
@@ -65,7 +64,6 @@ namespace Gestion_de_dossier
 
         public static int CurrentPage
         {
-            get { return _currentPage; }
             set
             {
                 // ReSharper disable once RedundantCheckBeforeAssignment
