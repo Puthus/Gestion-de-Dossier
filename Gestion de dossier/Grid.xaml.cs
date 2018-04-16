@@ -94,12 +94,21 @@ namespace Gestion_de_dossier
             {
                 Methods.CurrentPage--;
             }
+            else if (x == "First")
+            {
+                Methods.CurrentPage = 1;
+            }
+            else if (x == "Last")
+            {
+                Methods.CurrentPage = Methods.Results.Count;
+            }
             CurrentPage = Methods.CurrentPage;
+            Databind();
         }
 
         private void Grid_OnClosed(object sender, EventArgs e)
         {
-            Application.Current.Shutdown();
+            //Methods.Main.Show();
         }
 
         DispatcherTimer Pager = new DispatcherTimer();
@@ -114,15 +123,12 @@ namespace Gestion_de_dossier
 
         private void PagerTicker(Object sender, EventArgs e)
         {
-            Fader.Tick += FaderTicker;
             Pageer("Plus");
-            Databind();
-            _grid.Opacity = 1;
         }
 
         private void FaderTicker(Object sender, EventArgs e)
         {
-            
+
         }
 
         public void Pager_restart()
@@ -136,5 +142,32 @@ namespace Gestion_de_dossier
             Application.Current.Shutdown();
         }
 
+        private void Button_First(object sender, RoutedEventArgs e)
+        {
+            Pageer("First");
+        }
+
+        private void Button_last(object sender, RoutedEventArgs e)
+        {
+            Pageer("Last");
+        }
+
+        private void Button_pause_play(object sender, RoutedEventArgs e)
+        {
+            if (Pager.IsEnabled)
+            {
+                Pager.Start();
+            }
+            else
+            {
+                Pager.Stop();
+            }
+        }
+
+        private void Button_back(object sender, RoutedEventArgs e)
+        {
+            Methods.Second.Close();
+            Methods.Main.Show();
+        }
     }
 }

@@ -15,17 +15,17 @@ namespace Gestion_de_dossier
             InitializeComponent();
             txtNum.Text = _numValue.ToString();
             DataContext = this;
-            Debut.SelectedDate=DateTime.Today.AddDays(-7);
-            Fin.SelectedDate=DateTime.Today;
+            Debut.SelectedDate = DateTime.Today.AddDays(-7);
+            Fin.SelectedDate = DateTime.Today;
         }
-
-        private readonly Grid _g1 = new Grid();
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             Methods.CurrentPage = 1;
             Hide();
-            _g1.Show();
+            Grid _g1 = new Grid();
+            Methods.Second = _g1;
+            Methods.Second.Show();
             Refrech();
         }
 
@@ -49,7 +49,13 @@ namespace Gestion_de_dossier
 
         private void cmdDown_Click(object sender, RoutedEventArgs e)
         {
-            NumValue--;
+            if (int.TryParse(txtNum.Text, out _numValue))
+            {
+                if (_numValue > 0)
+                {
+                    NumValue--;
+                }
+            }
         }
 
         private void txtNum_TextChanged(object sender, TextChangedEventArgs e)
@@ -65,7 +71,7 @@ namespace Gestion_de_dossier
 
         private void Refrech()
         {
-            Methods.Results = Methods.GetResults(Methods.Filler(this), Int32.Parse(txtNum.Text), _g1);
+            Methods.Results = Methods.GetResults(Methods.Filler(this), Int32.Parse(txtNum.Text), Methods.Second);
             if (Methods.CurrentPage > Methods.Results.Count)
             {
                 Methods.CurrentPage = Methods.Results.Count;
