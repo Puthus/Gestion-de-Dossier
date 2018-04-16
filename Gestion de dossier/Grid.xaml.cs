@@ -114,6 +114,7 @@ namespace Gestion_de_dossier
 
         private void PagerTicker(Object sender, EventArgs e)
         {
+
             Fader.Tick += FaderTicker;
             Pageer("Plus");
             Databind();
