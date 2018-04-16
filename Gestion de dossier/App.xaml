@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:Gestion_de_dossier"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary></ResourceDictionary>
+                <ResourceDictionary Source="Styles/Fonts.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/Buttons.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>

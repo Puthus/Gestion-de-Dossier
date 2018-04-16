@@ -123,11 +123,6 @@ namespace Gestion_de_dossier
 
         private void PagerTicker(Object sender, EventArgs e)
         {
-<<<<<<< HEAD
-
-            Fader.Tick += FaderTicker;
-=======
->>>>>>> 011a87a758718306e04b802b2e070ced4918c6be
             Pageer("Plus");
         }
 

@@ -6,10 +6,11 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:Gestion_de_dossier"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Border Padding="50">
-        <Grid>
+        mc:Ignorable="d" FontFamily="{DynamicResource Montseratt}"
+        Title="Gestion de dossier" Height="1588.667" Width="2470.667" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+
+    <Border Padding="50" Background="#FFF2F3F5">
+        <Grid Background="#FFF2F3F5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -34,41 +35,74 @@
                 <RowDefinition Height="*" ></RowDefinition>
                 <RowDefinition Height="*" ></RowDefinition>
             </Grid.RowDefinitions>
+            <Viewbox Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="4">
+                <TextBlock Text="Gestion de dossier" FontFamily="{DynamicResource SomaticRounded}" FontWeight="Black" Foreground="#3d3d3d"></TextBlock>
+            </Viewbox>
+                <Viewbox Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="10" Margin="20 0 20 0">
+                <GroupBox Padding="0 20 0 20" Header="Pick the date" Background="White" BorderBrush="White" Foreground="#FF161616" FontFamily="{StaticResource Montseratt}" FontWeight="Medium" FontSize="16" UseLayoutRounding="False"  >
+                    <GroupBox.Effect>
+                        <DropShadowEffect BlurRadius="67" Direction="0" ShadowDepth="0" RenderingBias="Quality" Opacity="0.1"/>
+                    </GroupBox.Effect>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="20"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="20"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--TextBlock Grid.Column="0" Text="Pick the date range : " -->
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
 
-            <Grid Grid.ColumnSpan="10" Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Pick the date range : "></TextBlock>
-                <TextBlock Grid.Column="1" Text="From : "></TextBlock>
+                            <TextBlock Grid.Column="0" Text="From : " FontFamily="{StaticResource Montseratt}" FontWeight="Medium" FontSize="32" Foreground="#FF7E8EA5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <DatePicker Grid.Column="1" Style="{DynamicResource DatePickerStyle1}" x:FieldModifier="public"  x:Name="Debut" FontFamily="{StaticResource Montseratt}" FontWeight="Medium" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" />
+                        </Grid>
 
-                <TextBlock Grid.Column="3" Text="Pick the ending date"></TextBlock>
-                <DatePicker x:FieldModifier="public"  x:Name="Fin" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            </Grid>
-            <Grid Grid.ColumnSpan ="6" Grid.Row="5" Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="Chose the number of lines" TextDecorations="{x:Null}" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <TextBox x:Name="txtNum" x:FieldModifier="public" Margin="5,5,0,5" Width="50" Text="0" TextChanged="txtNum_TextChanged" />
-                    <Button x:Name="cmdUp" x:FieldModifier="public" Margin="5,5,0,5" Content="˄" Width="20" Click="cmdUp_Click" />
-                    <Button x:Name="cmdDown" x:FieldModifier="public" Margin="0,5,0,5"  Content="˅" Width="20" Click="cmdDown_Click" />
-                </StackPanel>
-            </Grid>
-
-            <Button Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="7" Content="Click me" Click="ButtonBase_OnClick" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
-                <Button.Effect>
-                    <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="10" RenderingBias="Quality"/>
-                </Button.Effect>
-            </Button>
-
+                        <Grid Grid.Column="3" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"  Text="To :" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource Montseratt}" FontWeight="Medium" FontSize="32" Foreground="#FF7E8EA5"></TextBlock>
+                            <DatePicker Grid.Column="1" Style="{DynamicResource DatePickerStyle1}" x:FieldModifier="public"  x:Name="Fin" FontFamily="{StaticResource Montseratt}" FontWeight="Medium" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+            </Viewbox>
+            <Viewbox  Grid.ColumnSpan ="6" Grid.Row="5" Grid.RowSpan="3"  Grid.Column="2" >
+                <GroupBox Padding="0 20 0 20" Header="Choose the number of rows per page" Background="White" BorderBrush="White" Foreground="#FF161616"  FontFamily="{StaticResource Montseratt}" FontWeight="Medium" FontSize="40" HorizontalAlignment="Center"  Width="1351" Height="277" >
+                    <GroupBox.Effect>
+                        <DropShadowEffect BlurRadius="67" Direction="0" ShadowDepth="0" RenderingBias="Quality" Opacity="0.1"/>
+                    </GroupBox.Effect>
+                    <Grid>
+                        <Viewbox Height="100">
+                            <Grid FlowDirection="LeftToRight">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0" Style="{DynamicResource Roundtext}"  FontFamily="{DynamicResource Montseratt}" x:Name="txtNum" x:FieldModifier="public" Width="153" Text="0" TextChanged="txtNum_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                                <Button Grid.Column="2" Style="{DynamicResource RoundUp}" x:Name="cmdUp" x:FieldModifier="public" Click="cmdUp_Click" Width="50" Height="50" BorderBrush="{x:Null}" Background="{x:Null}" Content="&#708;" FontStretch="Expanded" FontWeight="Normal" FontFamily="{DynamicResource Montseratt}"/>
+                                <Button Grid.Column="4" Style="{DynamicResource RoundUp}"  FontFamily="{DynamicResource Montseratt}" x:Name="cmdDown" x:FieldModifier="public"  Click="cmdDown_Click"  Width="50" Height="50" BorderBrush="{x:Null}" Content="&#709;" Background="{x:Null}"/>
+                            </Grid>
+                        </Viewbox>
+                    </Grid>
+                </GroupBox>
+            </Viewbox>
+            <Viewbox Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="8" Grid.RowSpan="2">
+                <Button Style="{DynamicResource RoundCorner}" Content="SEARCH" Click="ButtonBase_OnClick" Height="26.144" Width="84.143" FontWeight="Bold">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="19" Direction="0" ShadowDepth="0" Opacity="0.265"/>
+                    </Button.Effect>
+                </Button>
+            </Viewbox>
         </Grid>
     </Border>
 </Window>
-
