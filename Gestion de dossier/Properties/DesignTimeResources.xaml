@@ -3,6 +3,8 @@
                     xmlns:local="clr-namespace:Gestion_de_dossier.Properties">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Gestion de dossier;component/Styles/Fonts.xaml"/>
+        <ResourceDictionary Source="/Gestion de dossier;component/Styles/Buttons.xaml"/>
+        <ResourceDictionary Source="/Gestion de dossier;component/Gridtemplate.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

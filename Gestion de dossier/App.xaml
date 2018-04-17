@@ -10,6 +10,7 @@
                 <ResourceDictionary></ResourceDictionary>
                 <ResourceDictionary Source="Styles/Fonts.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Styles/Buttons.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Gridtemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

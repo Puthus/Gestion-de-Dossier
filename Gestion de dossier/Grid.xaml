@@ -6,22 +6,18 @@
         mc:Ignorable="d" Height="500" Width="800"
         Loaded="Grid_OnLoaded"
         Closed="Grid_OnClosed" WindowStyle="None" 
-        ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowState="Maximized" AutomationProperties.Name="Grid" Foreground="{x:Null}">
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#FF536976" Offset="0"/>
-            <GradientStop Color="#FF292E49" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
+        ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowState="Maximized" AutomationProperties.Name="Grid" Foreground="{x:Null}" Background="#FFEFF0F2">
 
     <Grid>
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -31,7 +27,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--Exit-->
-        <Button x:Name="button" Click="button_Click" Grid.Row="0" Grid.Column="4" VerticalAlignment="Top" Height="20" VerticalContentAlignment="Center" Foreground="{x:Null}" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Width="20">
+        <Button x:Name="button" Click="button_Click" Grid.Row="0" Grid.Column="6" VerticalAlignment="Top" Height="20" VerticalContentAlignment="Center" Foreground="{x:Null}" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Width="20" Grid.ColumnSpan="2">
             <Button.BorderBrush>
                 <ImageBrush ImageSource="Exit.png"/>
             </Button.BorderBrush>
@@ -39,51 +35,90 @@
                 <ImageBrush ImageSource="Exit.png"/>
             </Button.Background>
         </Button>
+        <Viewbox Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="Dossiers" Foreground="Black" FontWeight="Medium" FontFamily="{DynamicResource Rounded}"></TextBlock>
+        </Viewbox>
+        <DataGrid x:Name="_grid" GridLinesVisibility="Horizontal" ItemsSource="{Binding}" IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="3"/>
+            <Grid Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.ColumnSpan="8" Grid.Column="0" Background="White" Margin="10" CornerRadius="15">
+                <Border.Effect>
+                    <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="28" Opacity="0.2"/>
+                </Border.Effect>
+            </Border>
+            <!--First-->
+            <Viewbox Grid.Column="0">
+                <Button Style="{DynamicResource Firststyle}" Click="Button_First" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="{x:Null}" Foreground="{x:Null}" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="{DynamicResource First}" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+            </Viewbox>
+            <!--Previous-->
+            <Viewbox Grid.Column="1">
+                <Button Style="{DynamicResource Prevstyle}" Grid.Column="0" Click="Button_Previous" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{x:Null}" BorderBrush="{x:Null}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="{DynamicResource Prev}"/>
+                    </Button.Background>
+                </Button>
+            </Viewbox>
+            <!--Page number-->
+            <Viewbox Grid.Column="2">
+                <TextBlock FontFamily="{DynamicResource Rounded}" Text ="{Binding CurrentPage}" Width="20" Foreground="#FF2C2C2C" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            </Viewbox>
+            <!--Next-->
+            <Viewbox Grid.Column="3">
+                <Button Style="{DynamicResource Nextstyle}" Click="Button_Next" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="{x:Null}" Foreground="{x:Null}" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="{DynamicResource Next}" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+            </Viewbox>
+            <!--Last-->
+            <Viewbox Grid.Column="4">
+                <Button Style="{DynamicResource Laststyle}"  Click="Button_last" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="{DynamicResource Last}"/>
+                    </Button.Background>
+                </Button>
+            </Viewbox>
+            <!--Pause play-->
+            <Viewbox Grid.Column="5">
+                <Button Style="{DynamicResource Playstyle}" Grid.Column="3" Click="Button_pause_play" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="{DynamicResource Play}"/>
+                    </Button.Background>
+                </Button>
+            </Viewbox>
+            <!--Refresh-->
+            <Viewbox Grid.Column="6">
+                <Button Style="{DynamicResource Refrechstyle}" Click="Button_Refrech" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="{DynamicResource Refrech}"/>
+                    </Button.Background>
+                </Button>
+            </Viewbox>
 
-        <DataGrid x:Name="_grid" GridLinesVisibility="Horizontal" ItemsSource="{Binding}" IsReadOnly="True" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="3">
+            <!--Back-->
+            <Viewbox Grid.Column="8">
+                <Button Style="{DynamicResource Backstyle}" Click="Button_back" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="{DynamicResource Back}"/>
+                    </Button.Background>
+                </Button>
+            </Viewbox>
+        </Grid>
 
-        </DataGrid>
-
-        <!--First-->
-        <Button Grid.Column="0" Grid.Row="4" Click="Button_First" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,48.4" Width="50" Height="50" BorderBrush="{x:Null}" >
-            <Button.Background>
-                <ImageBrush ImageSource="next.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-
-        <!--Next-->
-        <Button Grid.Column="2" Grid.Row="4" Click="Button_Next" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,109,49" Width="50" Height="50" BorderBrush="{x:Null}" >
-            <Button.Background>
-                <ImageBrush ImageSource="next.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-
-        <!--Page number-->
-        <TextBlock Grid.Column="1" Grid.Row="4"  Text ="{Binding CurrentPage}" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="0,10,0,68.44" Foreground="White"/>
-
-        <!--Previous-->
-        <Button Grid.Row="4" Click="Button_Previous" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="109,0,157,49" Width="50" Height="50" Grid.ColumnSpan="2"
-                Grid.Column="0">
-            <Button.Background>
-                <ImageBrush ImageSource="next.png"/>
-            </Button.Background>
-        </Button>
-
-        <!--Last-->
-        <Button Grid.Column="2" Grid.Row="4" Click="Button_last" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,48.4" Width="50" Height="50">
-            <Button.Background>
-                <ImageBrush ImageSource="next.png"/>
-            </Button.Background>
-        </Button>
-
-        <!--Refresh-->
-        <Button Grid.Column="3" Grid.Row="4" Click="Button_Refrech" Content="Reload"/>
-
-        <!--Pause play-->
-        <Button Grid.Column="4" Grid.Row="4" Click="Button_pause_play" Margin="80,49,0,0" Content="| | &gt;"/>
-
-        <!--Back-->
-        <Button Grid.Column="4" Grid.Row="4" Click="Button_back" Margin="0,0,84,49" Content="Back"/>
 
     </Grid>
 </Window>

@@ -2,9 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Gestion_de_dossier">
 
-    <FontFamily x:Key="SomaticRounded">pack://application;,,,/Fonts/#Somatic-Rounded</FontFamily>
     <FontFamily x:Key="RobotoRegular">pack://application;,,,/Fonts/#Roboto</FontFamily>
     <FontFamily x:Key="Montseratt">pack://application;,,,/Fonts/#Montserrat</FontFamily>
+    <FontFamily x:Key="Rounded">/Gestion de dossier;component/Fonts/#Somatic Rounded</FontFamily>
 
 
 </ResourceDictionary>

@@ -22,7 +22,7 @@ namespace Gestion_de_dossier
             cmd.Parameters.Add(new MySqlParameter("@debut", MySqlDbType.Date));
             cmd.Parameters.Add(new MySqlParameter("@fin", MySqlDbType.Date));
             DataTable dt = new DataTable();
-
+            DataSet ds =new DataSet();
 
             if (a.Debut.SelectedDate != null)
             {
@@ -36,7 +36,7 @@ namespace Gestion_de_dossier
                 cmd.Parameters["@fin"].Value = Getdate(date.ToShortDateString());
             }
 
-            cmd.CommandText = "select * from dossier where date_dossier >= @debut and date_dossier <= @fin";
+            cmd.CommandText = "select  NUm_dossier,Nom_dossier,date_dossier,Rep_dossier from dossier where date_dossier >= @debut and date_dossier <= @fin";
             cmd.Connection = connection;
 
             try
@@ -108,6 +108,7 @@ namespace Gestion_de_dossier
             }
             return result;
         }
+
         public static void Databind()
         {
             if (CurrentPage <= Results.Count && CurrentPage > 0)

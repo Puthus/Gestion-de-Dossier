@@ -53,6 +53,7 @@
       <HintPath>..\packages\MySql.Data.6.10.6\lib\net452\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -83,6 +84,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Grid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gridtemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,6 +139,26 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="testDataSet.xsc">
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testDataSet.xss">
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet1.xsc">
+      <DependentUpon>testDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testDataSet1.xss">
+      <DependentUpon>testDataSet1.xsd</DependentUpon>
+    </None>
     <Resource Include="Fonts\Somatic-Rounded.otf" />
     <Resource Include="Fonts\Roboto-Black.ttf" />
     <Resource Include="Fonts\Roboto-BlackItalic.ttf" />
@@ -165,6 +190,9 @@
     <Resource Include="Fonts\Montserrat-SemiBoldItalic.ttf" />
     <Resource Include="Fonts\Montserrat-Thin.ttf" />
     <Resource Include="Fonts\Montserrat-ThinItalic.ttf" />
+    <None Include="Grid.caml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -220,25 +248,48 @@
     <Resource Include="docs\MySqlCommand.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pattern.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="next.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Design\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Up.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Down.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Styles\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Styles\Down.png" />
+    <Resource Include="Styles\Down_hover.png" />
+    <Resource Include="Styles\Down_pressed.png" />
+    <Resource Include="Styles\First_hover.png" />
+    <Resource Include="Styles\First_pressed.png" />
+    <Resource Include="Styles\Last.png" />
+    <Resource Include="Styles\Last_hover.png" />
+    <Resource Include="Styles\Last_pressed.png" />
+    <Resource Include="Styles\Next.png" />
+    <Resource Include="Styles\Next_hover.png" />
+    <Resource Include="Styles\Next_pressed.png" />
+    <Resource Include="Styles\Play.png" />
+    <Resource Include="Styles\Play_hover.png" />
+    <Resource Include="Styles\Play_pressed.png" />
+    <Resource Include="Styles\Prev.png" />
+    <Resource Include="Styles\Prev_hover.png" />
+    <Resource Include="Styles\Prev_pressed.png" />
+    <Resource Include="Styles\Up_hover.png" />
+    <Resource Include="Styles\Up_pressed.png" />
+    <Resource Include="Styles\Up.png" />
+    <Resource Include="Styles\First.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Styles\Back.png" />
+    <Resource Include="Styles\Back_hover.png" />
+    <Resource Include="Styles\Back_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Styles\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Styles\Refresh_hover.png" />
+    <Resource Include="Styles\Refresh_pressed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

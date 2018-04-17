@@ -4,6 +4,8 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
+using System.Data;
+using System.Windows.Controls;
 
 namespace Gestion_de_dossier
 {
@@ -71,6 +73,7 @@ namespace Gestion_de_dossier
             if (Methods.CurrentPage <= Methods.Results.Count && Methods.CurrentPage > 0)
             {
                 _grid.DataContext = Methods.Results[Methods.CurrentPage - 1];
+                // _grid.ItemsSource = Methods.Results[Methods.CurrentPage - 1].DefaultView;
             }
         }
 
@@ -86,6 +89,7 @@ namespace Gestion_de_dossier
 
         private void Pageer(string x)
         {
+            Fader.Start();
             if (x == "Plus")
             {
                 Methods.CurrentPage++;
@@ -108,7 +112,7 @@ namespace Gestion_de_dossier
 
         private void Grid_OnClosed(object sender, EventArgs e)
         {
-            //Methods.Main.Show();
+            Pager.Tick -= PagerTicker;
         }
 
         DispatcherTimer Pager = new DispatcherTimer();
@@ -145,16 +149,18 @@ namespace Gestion_de_dossier
         private void Button_First(object sender, RoutedEventArgs e)
         {
             Pageer("First");
+            Pager_restart();
         }
 
         private void Button_last(object sender, RoutedEventArgs e)
         {
             Pageer("Last");
+            Pager_restart();
         }
 
         private void Button_pause_play(object sender, RoutedEventArgs e)
         {
-            if (Pager.IsEnabled)
+            if (!Pager.IsEnabled)
             {
                 Pager.Start();
             }
