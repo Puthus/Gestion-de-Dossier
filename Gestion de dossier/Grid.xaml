@@ -6,7 +6,7 @@
         mc:Ignorable="d" Height="500" Width="800"
         Loaded="Grid_OnLoaded"
         Closed="Grid_OnClosed" WindowStyle="None" 
-        ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowState="Maximized" AutomationProperties.Name="Grid" Foreground="{x:Null}" Background="#FFEFF0F2">
+        ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowState="Maximized" AutomationProperties.Name="Grid" Foreground="{x:Null}" Background="#FFF2F3F5">
 
     <Grid>
 
@@ -38,14 +38,16 @@
         <Viewbox Grid.Row="0" Grid.Column="1">
             <TextBlock Text="Dossiers" Foreground="Black" FontWeight="Medium" FontFamily="{DynamicResource Rounded}"></TextBlock>
         </Viewbox>
-        <DataGrid x:Name="_grid" GridLinesVisibility="Horizontal" ItemsSource="{Binding}" IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="3"/>
-            <Grid Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+        <DataGrid CanUserReorderColumns="False" FontFamily="{DynamicResource RobotoRegular}" RowHeight="50" ColumnWidth="*" ColumnHeaderStyle="{DynamicResource Header}" x:Name="_grid" GridLinesVisibility="Horizontal" ItemsSource="{Binding}" IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="3" BorderBrush="{x:Null}" Background="#FFF2F3F5"/>
+
+        <Grid Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                
+
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

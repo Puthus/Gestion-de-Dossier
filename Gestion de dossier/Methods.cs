@@ -36,7 +36,7 @@ namespace Gestion_de_dossier
                 cmd.Parameters["@fin"].Value = Getdate(date.ToShortDateString());
             }
 
-            cmd.CommandText = "select  NUm_dossier,Nom_dossier,date_dossier,Rep_dossier from dossier where date_dossier >= @debut and date_dossier <= @fin";
+            cmd.CommandText = "select * from dossier where date_dossier >= @debut and date_dossier <= @fin";
             cmd.Connection = connection;
 
             try
